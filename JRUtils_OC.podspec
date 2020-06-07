@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.name         = "JRUtils_OC"
   s.version      = "0.0.1"
   s.summary      = "__"
-  s.description  = '工具集合'
+  s.description  = '工具集合 OC'
 
   s.homepage     = "https://github.com/jiaren0204/JRUtils_OC"
   s.license      = "MIT"
