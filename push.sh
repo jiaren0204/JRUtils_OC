@@ -1,3 +1,3 @@
 cd `dirname $0`
 
-pod trunk push JRUtils_OC.podspec --verbose --allow-warnings --use-libraries
+pod trunk push --verbose --allow-warnings --use-libraries

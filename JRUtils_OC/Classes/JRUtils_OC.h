@@ -4,7 +4,7 @@
 //
 //  Created by 梁嘉仁 on 2020/6/6.
 //  Copyright © 2020 梁嘉仁. All rights reserved.
-//
+// 0.0.2
 
 #ifndef JRUtils_OC_h
 #define JRUtils_OC_h
