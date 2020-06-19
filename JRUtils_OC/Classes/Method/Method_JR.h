@@ -218,7 +218,13 @@ static inline void Common_Goto_AppStore_Rate(NSString *appid)
 /** 数据归档 */
 static inline void Common_Archived_Data(id obj, NSString *path)
 {
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:obj requiringSecureCoding:NO error:nil];
+    NSData *data;
+    if (@available(iOS 11, *)) {
+        data = [NSKeyedArchiver archivedDataWithRootObject:obj requiringSecureCoding:NO error:nil];
+    } else {
+        data = [NSKeyedArchiver archivedDataWithRootObject:obj];
+    }
+    
     if ([data writeToFile:path atomically:YES]) {
         NSLog(@"归档成功 %@", path);
     }
@@ -229,9 +235,13 @@ static inline id Common_Unarchived_Data(NSString *path)
 {
     NSData *data = [NSData dataWithContentsOfFile:path];
     
-    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:data error:nil];
-    unarchiver.requiresSecureCoding = NO;
-    return [unarchiver decodeTopLevelObjectForKey:NSKeyedArchiveRootObjectKey error:nil];
+    if (@available(iOS 11, *)) {
+        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:data error:nil];
+        unarchiver.requiresSecureCoding = NO;
+        return [unarchiver decodeTopLevelObjectForKey:NSKeyedArchiveRootObjectKey error:nil];
+    } else {
+        return [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    }
 }
 
 #pragma mark - 其他

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "JRUtils_OC"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "__"
   s.description  = '工具集合 OC'
 
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.author             = { "梁嘉仁" => "50839393@qq.com" }
   s.platform     = :ios, "10.0"
 
-  s.source       = { :git => "https://github.com/jiaren0204/JRUtils_OC.git", :tag => "0.0.2" }
+  s.source       = { :git => "https://github.com/jiaren0204/JRUtils_OC.git", :tag => "0.0.3" }
 
   s.source_files  = "JRUtils_OC/Classes/*.h"
 
