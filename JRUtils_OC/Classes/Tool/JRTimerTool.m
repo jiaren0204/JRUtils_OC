@@ -186,11 +186,12 @@ static NSMutableDictionary<NSString *, CADisplayLink *> *_displayLinkList = nil;
 + (void)stopTimerWithKey:(NSString *)key
 {
     NSTimer *timer = _timerList[key];
-    
-    [timer invalidate];
-    timer = nil;
-    
-    [_timerList removeObjectForKey:key];
+    if (timer != nil) {
+        [timer invalidate];
+        timer = nil;
+        
+        [_timerList removeObjectForKey:key];
+    }
 }
 
 static NSMutableDictionary<NSString *, NSMutableArray<NSTimer *> *> *__dealyNoCover = nil;
